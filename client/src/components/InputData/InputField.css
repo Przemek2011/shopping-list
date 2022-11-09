@@ -1,0 +1,31 @@
+.addTask {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.addTask input {
+  display: inline;
+  height: 5vh;
+  border-radius: 5vh;
+  border: none;
+  text-align: center;
+}
+
+.addTask input[type=text] {
+  width: 30vw;
+}
+
+.addTask input[type=number] {
+  width: 10vw;
+  margin-left: 10px;
+}
+
+.addTask button {
+  width: 100px;
+  height: 5vh;
+  margin-left: 10px;
+  background-color: #168b16;
+  border-radius: 5vh;
+  border: none;
+  color: whitesmoke;
+}
