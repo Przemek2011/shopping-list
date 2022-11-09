@@ -50,6 +50,23 @@ app.get('/api', (req,res)=> {
     res.send("hello")
 })
 
+// Add Thing
+app.post('/addTask', (req, res) => {
+    let post = {
+        Id: req.body.id,
+        Name: req.body.name,
+        Price: req.body.price,
+     
+    }
+    let sql = 'INSERT INTO ShoppingList  SET?'
+    let query = db.query(sql, post, err => {
+        if (err) {
+            throw err
+        }
+        res.send('Thing added')
+    })
+})
+
 
 
 
