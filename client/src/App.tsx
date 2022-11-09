@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import "./App.min.css"
 import axios from 'axios';
+import InputField from './components/InputData/InputField';
 
-const App = () => {
-  
+
+
+const App: React.FC = () => {
+
+ 
+
   return (
-    <div>
-     Aplikacja
+    <div className='App'>
+
+      <p id='title'>Shopping list</p>
+      <InputField/>
+      
+
+
     </div>
   )
 }
