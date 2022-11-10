@@ -24,6 +24,10 @@
   transform: translateY(-50%);
 }
 
+.shoppingList span:hover {
+  cursor: pointer;
+}
+
 .shoppingList .icon {
   display: inline-block;
   position: absolute;
@@ -37,8 +41,60 @@
   margin-left: 10px;
 }
 
-.shoppingList #details:hover,
 .shoppingList #edit:hover,
-.shoppingList #delete:hover {
+.shoppingList #delete:hover,
+.shoppingList #details:hover {
   font-size: 2rem;
+}
+
+.shoppingListMore {
+  width: 40vw;
+  height: 20vh;
+  background-color: #8f8989;
+  border: none;
+  border-radius: 5vh;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  font-size: 1.4rem;
+}
+
+.shoppingListMore span {
+  display: inline-block;
+  padding-left: 20px;
+  line-height: 5vh;
+  width: 75%;
+}
+
+.shoppingListMore span #details {
+  position: absolute;
+  margin-top: 5px;
+}
+
+.shoppingListMore span:hover {
+  cursor: pointer;
+}
+
+.shoppingListMore .icon {
+  display: inline-block;
+  position: absolute;
+  margin-top: 5px;
+}
+
+.shoppingListMore #details,
+.shoppingListMore #edit,
+.shoppingListMore #delete {
+  margin-left: 10px;
+}
+
+.shoppingListMore #details:hover,
+.shoppingListMore #edit:hover,
+.shoppingListMore #delete:hover {
+  font-size: 2rem;
+}
+
+.shoppingListMore #price,
+.shoppingListMore #updated {
+  margin-left: 20px;
 }

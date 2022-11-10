@@ -12,22 +12,26 @@ interface ShoppingList {
     UpdateDate: string;
 }
 
-const ShoppingList = () => {
+const ShoppingList: React.FC = () => {
 
     const [shoppingList, setShoppingList] = useState<ShoppingList[]>([]);
 
 
     // Download shopping list
-    useEffect(() => {
+    const downloadShoppingList = () => {
         axios.get('http://localhost:9000/downloadShoppingList')
             .then(response => {
+                
                 setShoppingList(response.data);
             })
             .catch(err => {
                 console.log(err)
             })
-    }, [shoppingList])
+    }
 
+    useEffect(() => {
+        downloadShoppingList();
+    }, [shoppingList])
 
 
 

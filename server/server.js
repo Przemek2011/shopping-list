@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
 
     res.setHeader('Access-Control-Allow-Origin', '*');
 
@@ -23,12 +23,12 @@ app.use(function(req, res, next) {
 
 // Data MySql
 const db = mysql.createConnection({
-        host: 'serwer2286904.home.pl',
-        user: '35797066_shopping_list',
-        password: 'shopping_list',
-        database: '35797066_shopping_list'
-    })
-    // Connect to MySQL
+    host: 'serwer2286904.home.pl',
+    user: '35797066_shopping_list',
+    password: 'shopping_list',
+    database: '35797066_shopping_list'
+})
+// Connect to MySQL
 db.connect(err => {
     if (err) {
         throw err
@@ -56,6 +56,7 @@ app.post('/addTask', (req, res) => {
         Price: req.body.price,
 
     }
+
     let sql = 'INSERT INTO ShoppingList  SET?'
     let query = db.query(sql, post, err => {
         if (err) {
@@ -67,15 +68,15 @@ app.post('/addTask', (req, res) => {
 
 // Download Shopping List
 app.get('/downloadShoppingList', (req, res) => {
-        let sql = 'SELECT * FROM ShoppingList'
-        let query = db.query(sql, (err, results) => {
-            if (err) {
-                throw err
-            }
-            res.send(results)
-        })
+    let sql = 'SELECT * FROM ShoppingList'
+    let query = db.query(sql, (err, results) => {
+        if (err) {
+            throw err
+        }
+        res.send(results)
     })
-    //Delete Thing
+})
+//Delete Thing
 app.delete('/deleteThing/:id', (req, res) => {
     let sql = `DELETE FROM ShoppingList WHERE Id = ${req.params.id} `
     let query = db.query(sql, err => {
@@ -83,6 +84,17 @@ app.delete('/deleteThing/:id', (req, res) => {
             throw err
         }
         res.send('Thing deleted')
+    })
+})
+
+app.post('/editThing', (req, res) => {
+
+    let sql = `UPDATE ShoppingList SET Name='${req.body.Name}', Price='${req.body.Price}', UpdateDate='${req.body.UpdateDate}' WHERE Id=${req.body.Id}`
+    let query = db.query(sql, err => {
+        if (err) {
+            throw err
+        }
+        res.send("OK")
     })
 })
 

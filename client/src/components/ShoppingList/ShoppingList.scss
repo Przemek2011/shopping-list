@@ -9,31 +9,90 @@
     margin-right: auto;
     position: relative;
     font-size: 1.4rem;
+
     span {
         display: inline-block;
         padding-left: 20px;
         line-height: 5vh;
         width: 75%;
+
         #details {
             position: absolute;
             top: 55%;
             transform: translateY(-50%);
         }
     }
+    span:hover{
+        cursor: pointer;
+    }
+
     .icon {
         display: inline-block;
         position: absolute;
         top: 55%;
         transform: translateY(-50%);
     }
+
     #details,
     #edit,
     #delete {
         margin-left: 10px;
     }
+
+    
+    #edit:hover,
+    #delete:hover,
+    #details:hover {
+        font-size: 2rem;
+    }
+}
+
+.shoppingListMore {
+    width: 40vw;
+    height: 20vh;
+    background-color: rgb(143, 137, 137);
+    border: none;
+    border-radius: 5vh;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    font-size: 1.4rem;
+
+    span {
+        display: inline-block;
+        padding-left: 20px;
+        line-height: 5vh;
+        width: 75%;
+
+        #details {
+            position: absolute;
+            margin-top: 5px;
+        }
+    }
+    span:hover{
+        cursor: pointer;
+    }
+
+    .icon {
+        display: inline-block;
+        position: absolute;
+        margin-top: 5px;
+    }
+
+    #details,
+    #edit,
+    #delete {
+        margin-left: 10px;
+    }
+
     #details:hover,
     #edit:hover,
     #delete:hover {
         font-size: 2rem;
+    }
+    #price,
+    #updated {
+        margin-left: 20px;
     }
 }

@@ -22,7 +22,7 @@ const InputField: React.FC = () => {
             })
         setName('');
         setPrice('');
-     
+
     }
 
 
@@ -37,7 +37,7 @@ const InputField: React.FC = () => {
                 onChange={(e) => setPrice(e.target.value)}
                 required></input>
             <button type='submit'>Add Task</button>
-            <div><FaBeer /></div>
+
         </form>
     )
 }
