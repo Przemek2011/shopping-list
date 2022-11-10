@@ -81,10 +81,12 @@ const OneThing: React.FC<Props> = ({ thing }) => {
                     
                         <input type='text' value={editName}
                             onChange={(e) => setEditName(e.target.value)}
+                            required
                         ></input>
                         
                         <input type='text' value={editPrice}
                             onChange={(e) => setEditPrice(e.target.value)}
+                            required
                         ></input>
                          <button type='submit'>Save</button>
                          <button id='cancel' onClick={() => setEdit(false)}>Cancel</button>
