@@ -1,7 +1,7 @@
 .edit {
   position: relative;
   z-index: 100;
-  width: 40vw;
+  width: 53vw;
   height: 5vh;
   background-color: #8f8989;
   border: none;
@@ -31,6 +31,10 @@
   border-radius: 25px;
   border: none;
   background-color: #168b16;
+}
+
+.edit button:hover {
+  cursor: pointer;
 }
 
 .edit #cancel {

@@ -37,8 +37,8 @@ db.connect(err => {
 })
 
 //Create Table Shopping List
-app.post('/createShoppingList', (req, res) => {
-    let sql = 'CREATE TABLE ShoppingList(Id DOUBLE, Name VARCHAR(255), Price VARCHAR(255), UpdateDate VARCHAR(255) ,  PRIMARY KEY(id)) ';
+app.get('/createShoppingList', (req, res) => {
+    let sql = 'CREATE TABLE ShoppingList(id DOUBLE, name VARCHAR(255), price VARCHAR(255), updateDate VARCHAR(255) ,  PRIMARY KEY(id)) ';
     db.query(sql, err => {
         if (err) {
             throw err
@@ -49,12 +49,11 @@ app.post('/createShoppingList', (req, res) => {
 
 
 // Add Thing
-app.post('/addTask', (req, res) => {
+app.post('/addThing', (req, res) => {
     let post = {
-        Id: req.body.id,
-        Name: req.body.name,
-        Price: req.body.price,
-
+        id: req.body.id,
+        name: req.body.name,
+        price: req.body.price,
     }
 
     let sql = 'INSERT INTO ShoppingList  SET?'
@@ -62,7 +61,7 @@ app.post('/addTask', (req, res) => {
         if (err) {
             throw err
         }
-        res.send('Thing added')
+        res.send(`Thing added`)
     })
 })
 
@@ -89,12 +88,12 @@ app.delete('/deleteThing/:id', (req, res) => {
 
 app.post('/editThing', (req, res) => {
 
-    let sql = `UPDATE ShoppingList SET Name='${req.body.Name}', Price='${req.body.Price}', UpdateDate='${req.body.UpdateDate}' WHERE Id=${req.body.Id}`
+    let sql = `UPDATE ShoppingList SET Name='${req.body.name}', Price='${req.body.price}', UpdateDate='${req.body.updateDate}' WHERE Id=${req.body.id}`
     let query = db.query(sql, err => {
         if (err) {
             throw err
         }
-        res.send("OK")
+        res.send("Thing edited")
     })
 })
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './InputField.min.css';
-import { FaBeer } from 'react-icons/fa';
 import axios from 'axios';
 
 const InputField: React.FC = () => {
@@ -9,13 +8,14 @@ const InputField: React.FC = () => {
 
     const addTask = (e: React.FormEvent) => {
         e.preventDefault();
-        axios.post('http://localhost:9000/addTask', {
+        axios.post('http://localhost:9000/addThing', {
             name: name,
             price: price,
             id: Math.random(),
         })
             .then((response) => {
-                console.log(`Added Thing ${name} ${price} PLN`)
+                console.log(`Thing added:  ${name} ${price} PLN`)
+                console.log("Status: " + response.status + " " + response.statusText)
             })
             .catch(err => {
                 console.log(err)
@@ -27,7 +27,7 @@ const InputField: React.FC = () => {
 
 
     return (
-        <form className='addTask' onSubmit={(e) => addTask(e)}>
+        <form className='addThing' onSubmit={(e) => addTask(e)}>
             <input type='text' maxLength={100} placeholder='Enter a name'
                 value={name}
                 onChange={(e) => setName(e.target.value)}

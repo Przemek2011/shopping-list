@@ -6,10 +6,10 @@ import OneThing from '../OneThing/OneThing';
 
 
 interface ShoppingList {
-    Name: string;
-    Price: string;
-    Id: number;
-    UpdateDate: string;
+    name: string;
+    price: string;
+    id: number;
+    updateDate: string;
 }
 
 const ShoppingList: React.FC = () => {
@@ -21,7 +21,7 @@ const ShoppingList: React.FC = () => {
     const downloadShoppingList = () => {
         axios.get('http://localhost:9000/downloadShoppingList')
             .then(response => {
-                
+
                 setShoppingList(response.data);
             })
             .catch(err => {
@@ -36,26 +36,21 @@ const ShoppingList: React.FC = () => {
 
 
     return (
-        <>
-            <div>{shoppingList.map((thing) => (
 
-                <OneThing thing={thing} key={thing.Id} />
+        <div>{shoppingList.map((thing) => (
 
-            )
-
-            )
-
-            }
-
-
-            </div>
+            <OneThing thing={thing} key={thing.id} />
+        )
+        )
+        }
+        </div>
 
 
 
 
 
 
-        </>
+
 
 
     )
